@@ -1,4 +1,4 @@
-job('demo1-freestyle') {
+job('projectA/ssss-freestyle1') {
     steps {
         shell('echo Hello World!')
     }
