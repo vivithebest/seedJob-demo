@@ -1,4 +1,4 @@
-pipelineJob('projectA/ssss-pieline1') {
+pipelineJob('ssss-pieline1') {
     description """OneApp iOS Build on
     <h2>
     With Tag
