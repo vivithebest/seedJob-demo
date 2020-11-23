@@ -16,7 +16,6 @@ pipelineJob('sssss-pipeline3') {
                         }
                     }
                 }
-            }
         }
       '''.stripIndent())
       sandbox()     
