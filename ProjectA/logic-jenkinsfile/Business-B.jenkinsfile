@@ -1,0 +1,25 @@
+pipeline {
+    agent any
+
+    options {
+      buildDiscarder(logRotator(numToKeepStr:'3'))
+      timeout(time: 60, unit: 'MINUTES')
+      ansiColor('xterm')
+    }
+    
+    environment {
+        T0_DAY = "20201103"
+    }
+
+    stages {
+        stage('Run T0_DAY') {
+            steps {
+                ws("workspace/seedJob-playground/tasks/Business-A"){
+                    sh 'pwd && ls -l'
+                }
+            } 
+
+        }
+
+    }
+}

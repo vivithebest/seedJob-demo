@@ -1,0 +1,21 @@
+pipeline {
+    agent { label  'xxx-db' }
+
+    options {
+        disableConcurrentBuilds()  
+    }  
+    
+    stages {
+        stage('Truncate Table, Restore Dump file') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'DB-user-pwd', passwordVariable: 'PW', usernameVariable: 'USER')]) {
+                    sh '''
+                      source /home/oracle/.bash_profile 
+                      sqlplus --help
+                    '''
+                }
+            }
+        }
+    }
+}
+

@@ -1,0 +1,37 @@
+properties([
+    parameters([
+	    [
+	        $class: 'ChoiceParameter',
+	        choiceType: 'PT_CHECKBOX',
+	        description: '',
+	        filterLength: 1,
+	        filterable: false,
+	        name: 'test_scenarios',
+	        script: [
+	    	    $class: 'GroovyScript',
+	    	    fallbackScript: [
+	    	        classpath: [],
+	    	        sandbox: false,
+	    	        script: 'return [\'Error\']'
+	    	    ],
+	    	    script: [
+	    	        classpath: [],
+	    	        sandbox: false,
+	    	        script: '''
+					    def tasks = ["seedJob-playground/tasks/Business-A", "seedJob-playground/tasks/Business-B",
+						                  "seedJob-playground/tasks/Business-C"]
+	    	    	return tasks
+	    	    	'''.stripIndent().trim()
+	    	    ]
+	        ]
+	    ]
+    ])
+])
+
+node {
+    test_scenarios.split(",").each {ts ->
+	stage("$ts"){
+	    build(job: "$ts")
+	}
+    }
+}

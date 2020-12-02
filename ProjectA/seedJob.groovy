@@ -1,3 +1,4 @@
+// seed job for xx system
 node {
   stage('Checkout') {
     checkout scm
@@ -11,7 +12,7 @@ node {
       removedJobAction: 'DELETE',
       removedViewAction: 'DELETE',
       sandbox: true,
-      targets: 'Project1/jobs/*.groovy',
+      targets: 'ProjectA/jobs/*.groovy',
       unstableOnDeprecation: true
     )
   }
