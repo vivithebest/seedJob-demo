@@ -9,7 +9,7 @@ pipelineJob('ManualSelection') {
 
 // No 1
 pipelineJob('tasks/Business-A') {
-ition {
+definition {
     cps {
       script(readFileFromWorkspace('ProjectA/logic-jenkinsfile/Business-A.jenkinsfile'))
       sandbox()     
