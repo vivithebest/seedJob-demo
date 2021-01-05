@@ -12,7 +12,7 @@ pipeline {
     }
 
     stages {
-        stage('💻 🏗️ 🐳 🚧 🚀 😀 Checkout Code') {
+        stage('💻 🏗️ 🐳 🚧 🚀 😀 \01F680 Checkout Code') {
             steps {
                 dir('BBBDir'){
                     checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: '*/master']], 
